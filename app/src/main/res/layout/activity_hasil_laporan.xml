@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".HasilLaporanActivity">
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="60dp"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/baseline_arrow_24"
+        android:text="Back"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_margin="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Laporan Harian Kerja Praktek"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Program Studi Teknik Informatika"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llkp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Judul Kp"
+            android:textSize="12sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/judul"
+            android:background="@drawable/bg_black_straight"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/llkp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="Nama mhs"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="Nim"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="Tgl Dimulai"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text=":"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text=":"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text=":"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="test123.."/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="12000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:text="12000000"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="2"
+        app:layout_constraintTop_toBottomOf="@+id/ll3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <TableRow
+            android:background="@color/white"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:text="Dosen Pembimbing Kp"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:text="pembimbing Instansi"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+        </TableRow>
+
+        <TableRow
+            android:background="@color/white"
+            android:padding="10dp">
+
+            <TextView
+                android:text="Budi S.T, M.T"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:text="Hartono S.T, M.T"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/table"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow android:background="@color/white"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:text="No"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:text="Kegiatan"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="2"/>
+            <TextView
+                android:text="Catatan"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="3"/>
+
+            <TextView
+                android:text="Paraf"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+        </TableRow>
+        <TableRow android:background="@color/white"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:text="Wawancara Pihak IT"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="2"/>
+            <TextView
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="3"/>
+
+            <TextView
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:background="@color/white"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:text="2"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="2"/>
+            <TextView
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="3"/>
+
+            <TextView
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow android:background="@color/white"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:text="3"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="2"/>
+            <TextView
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="3"/>
+
+            <TextView
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:gravity="center"
+                android:layout_weight="1"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/botNavbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/blue_400"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/list_navbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

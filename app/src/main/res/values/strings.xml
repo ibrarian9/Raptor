@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Raptor</string>
+    <string name="silahkan">Silahkan mengisi data dibawah dengan benar.</string>
+    <string name="beranda">Beranda</string>
+    <string name="cari">Cari</string>
+    <string name="agenda">Agenda</string>
+    <string name="profil">Profil</string>
+</resources>
