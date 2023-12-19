@@ -272,7 +272,7 @@
                 android:layout_weight="1"/>
         </TableRow>
         <TableRow android:background="@color/white"
-            android:layout_margin="10dp">
+            android:padding="10dp">
 
             <TextView
                 android:text="1"

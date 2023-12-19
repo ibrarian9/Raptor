@@ -85,6 +85,8 @@
             android:background="@drawable/bg_black_straight"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:layout_marginBottom="20dp"
             android:textSize="12sp"
             android:textColor="@color/black" />
@@ -102,6 +104,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="12sp"
             android:textColor="@color/black" />
 
@@ -118,6 +122,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="12sp"
             android:textColor="@color/black" />
 
@@ -134,6 +140,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="12sp"
             android:textColor="@color/black" />
 
@@ -150,10 +158,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:textSize="12sp"
             android:textColor="@color/black" />
 
         <TextView
+            android:id="@+id/simpan"
             android:layout_gravity="end"
             android:paddingTop="5dp"
             android:paddingStart="20dp"
