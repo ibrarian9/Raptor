@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,14 +9,17 @@
     tools:context=".HasilLaporanActivity">
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:layout_width="60dp"
-        android:layout_margin="10dp"
+        android:id="@+id/extendFab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/baseline_arrow_24"
-        android:text="Back"
+        android:layout_margin="10dp"
         android:textColor="@color/black"
         android:textSize="12sp"
-        android:background="@android:color/transparent"
+        android:text="Back"
+        app:icon="@drawable/baseline_arrow_24"
+        android:outlineAmbientShadowColor="@android:color/transparent"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +55,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll1">
@@ -68,7 +74,6 @@
             android:background="@drawable/bg_black_straight"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:textSize="12sp"
             android:textColor="@color/black" />
@@ -157,21 +162,21 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-                android:text="test123.."/>
+                android:text="test123.." />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-                android:text="12000000"/>
+                android:text="12000000" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-                android:text="12000000"/>
+                android:text="12000000" />
 
         </LinearLayout>
 
@@ -181,7 +186,7 @@
         android:id="@+id/table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:stretchColumns="2"
+        android:stretchColumns="*"
         app:layout_constraintTop_toBottomOf="@+id/ll3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -190,13 +195,16 @@
         android:layout_marginEnd="20dp">
 
         <TableRow
-            android:background="@color/white"
-            android:layout_margin="10dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
             <TextView
                 android:text="Dosen Pembimbing Kp"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
 
@@ -204,19 +212,24 @@
                 android:text="pembimbing Instansi"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
 
         </TableRow>
 
         <TableRow
-            android:background="@color/white"
-            android:padding="10dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
             <TextView
                 android:text="Budi S.T, M.T"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
 
@@ -224,6 +237,8 @@
                 android:text="Hartono S.T, M.T"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
 
@@ -241,13 +256,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TableRow android:background="@color/white"
-            android:layout_margin="10dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
             <TextView
                 android:text="No"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
 
@@ -255,12 +274,17 @@
                 android:text="Kegiatan"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="2"/>
+
             <TextView
                 android:text="Catatan"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="3"/>
 
@@ -268,16 +292,23 @@
                 android:text="Paraf"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
         </TableRow>
-        <TableRow android:background="@color/white"
-            android:padding="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
             <TextView
                 android:text="1"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
 
@@ -285,83 +316,104 @@
                 android:text="Wawancara Pihak IT"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="2"/>
+
             <TextView
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="3"/>
 
             <TextView
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
         </TableRow>
 
-        <TableRow android:background="@color/white"
-            android:layout_margin="10dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
             <TextView
                 android:text="2"
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
 
             <TextView
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="2"/>
+
             <TextView
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="3"/>
 
             <TextView
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:gravity="center"
                 android:layout_weight="1"/>
         </TableRow>
 
-        <TableRow android:background="@color/white"
-            android:layout_margin="10dp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
             <TextView
                 android:text="3"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:layout_weight="1"/>
 
             <TextView
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:layout_weight="2"/>
             <TextView
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:layout_weight="3"/>
 
             <TextView
-                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/bg_black_no_corners"
                 android:layout_weight="1"/>
+
         </TableRow>
 
     </TableLayout>
@@ -378,4 +430,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/list_navbar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

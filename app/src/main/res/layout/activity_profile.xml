@@ -5,47 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".FormLaporanActivity">
+    tools:context=".ProfileActivity">
 
-    <RelativeLayout
-        android:id="@+id/rl"
+    <LinearLayout
+        android:id="@+id/ll1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/blue_400"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="40dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/baseline_arrow_24"/>
-
-        <TextView
-            android:layout_gravity="center"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_centerInParent="true"
-            android:textColor="@color/black"
-            android:text="Selasa, 14 November 2023"/>
+            android:orientation="horizontal">
 
-    </RelativeLayout>
+            <ImageView
+                android:padding="5dp"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/baseline_account_circle_24"
+                android:contentDescription="TODO" />
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="Widya Maulida"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="120000000"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rl"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/ll1">
 
         <LinearLayout
-            android:id="@+id/ll1"
+            android:id="@+id/ll2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="40dp"
@@ -54,7 +76,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Agenda"
+                android:text="Nama"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
@@ -70,12 +92,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Waktu"
+                android:text="Email"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/nim"
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_black_straight"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Judul Kp"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/judulkp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
@@ -86,12 +125,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lokasi"
+                android:text="Semester"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/judul"
+                android:id="@+id/semester"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
@@ -102,12 +141,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Narasumber"
+                android:text="Tanggal Dimulai KP"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/narasumber"
+                android:id="@+id/tglmulai"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
@@ -118,14 +157,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kegiatan"
+                android:text="Dosen Pembimbing KP"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/kegiatan"
+                android:id="@+id/dospem"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
@@ -134,14 +173,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tambahkan Foto"
+                android:text="Pembimbing Instansi"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/pembimbing"
+                android:id="@+id/instansi"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
@@ -151,18 +190,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_grey"
-                    android:paddingStart="20dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="5dp"
-                    android:text="Draft"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -187,5 +214,18 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/blue_400"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/list_navbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

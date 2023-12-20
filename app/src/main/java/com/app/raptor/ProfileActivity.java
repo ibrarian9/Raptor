@@ -6,21 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
-public class HasilLaporanActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     BottomNavigationView botNavbar;
-    ExtendedFloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hasil_laporan);
+        setContentView(R.layout.activity_profile);
 
-        fab = findViewById(R.id.extendFab);
+        botNavbar = findViewById(R.id.bottomNavigationView);
 
-        botNavbar = findViewById(R.id.botNavbar);
         botNavbar.setOnItemSelectedListener(i -> {
             int id = i.getItemId();
             if (id == R.id.beranda){
@@ -29,9 +26,9 @@ public class HasilLaporanActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ListLaporanActivity.class));
                 return true;
             } else if (id == R.id.agenda) {
+                startActivity(new Intent(this, HasilLaporanActivity.class));
                 return true;
             } else if (id == R.id.profil) {
-                startActivity(new Intent(this, ProfileActivity.class));
                 return true;
             }
             return false;

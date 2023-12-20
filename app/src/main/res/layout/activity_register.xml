@@ -27,7 +27,8 @@
                 android:padding="5dp"
                 android:layout_width="70dp"
                 android:layout_height="60dp"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo"
+                android:contentDescription="TODO" />
 
             <LinearLayout
                 android:layout_gravity="center"

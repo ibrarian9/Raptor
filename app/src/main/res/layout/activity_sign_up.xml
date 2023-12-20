@@ -3,10 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".LoginActivity">
+    tools:context=".SignUpActivity">
 
     <ImageView
         android:layout_marginTop="40dp"
@@ -16,8 +16,7 @@
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_marginStart="40dp"
@@ -40,7 +39,7 @@
             android:textSize="15sp" />
 
         <EditText
-            android:id="@+id/edEmail"
+            android:id="@+id/edemail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/bg_black_edge"
@@ -51,10 +50,10 @@
             android:paddingEnd="10dp"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/akun_icon"
-            android:hint="Username Dan Email"/>
+            android:hint="Username Dan Email" />
 
         <EditText
-            android:id="@+id/edPass"
+            android:id="@+id/edpass"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -66,14 +65,14 @@
             android:paddingEnd="10dp"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/lock_icon"
-            android:hint="Password"/>
+            android:hint="Password" />
 
         <TextView
-            android:id="@+id/login"
+            android:id="@+id/register"
             android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="LOGIN"
+            android:text="DAFTAR"
             android:textSize="16sp"
             android:gravity="center"
             android:background="@drawable/bg_blue_600" />
@@ -97,11 +96,11 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/signUp"
+            android:id="@+id/signIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Sign Up"
+            android:text="Login"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
