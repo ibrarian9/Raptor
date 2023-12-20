@@ -6,11 +6,6 @@
         android:icon="@drawable/baseline_home_24" />
 
     <item
-        android:id="@+id/cari"
-        android:title="@string/cari"
-        android:icon="@drawable/baseline_search_24" />
-
-    <item
         android:id="@+id/agenda"
         android:title="@string/agenda"
         android:icon="@drawable/baseline_assignment_24" />

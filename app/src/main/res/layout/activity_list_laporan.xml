@@ -38,15 +38,17 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:text="Widya Maulida.."
+                    android:id="@+id/nama"
+                    android:text="@string/loading"
                     android:layout_weight="1"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="0dp" />
 
                 <TextView
-                    android:text="12150000"
+                    android:id="@+id/nim"
+                    android:text="@string/loading"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:layout_width="match_parent"

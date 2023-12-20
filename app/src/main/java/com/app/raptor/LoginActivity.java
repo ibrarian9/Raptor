@@ -25,16 +25,33 @@ public class LoginActivity extends AppCompatActivity {
     EditText edEmail, edPass;
     String email, pass;
 
-    @Override
     protected void onStart() {
         super.onStart();
         mAuth = FirebaseAuth.getInstance();
         //  Check if user Signed
         FirebaseUser current = mAuth.getCurrentUser();
         if (current != null){
-            Intent i = new Intent(this, ListLaporanActivity.class);
-            startActivity(i);
-            finish();
+            String userId = current.getUid();
+            DatabaseReference db = FirebaseDatabase.getInstance().getReference("Users");
+            db.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    UserDetails userDet = snapshot.getValue(UserDetails.class);
+                    assert userDet != null;
+                    String nama = userDet.getNama();
+                    if (!nama.equals("")){
+                        startActivity(new Intent(getApplicationContext(), ListLaporanActivity.class));
+                        finish();
+                    } else {
+                        startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                        finish();
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
     }
 

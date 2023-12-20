@@ -21,8 +21,6 @@ public class ProfileActivity extends AppCompatActivity {
         botNavbar.setOnItemSelectedListener(i -> {
             int id = i.getItemId();
             if (id == R.id.beranda){
-                return true;
-            } else if (id == R.id.cari) {
                 startActivity(new Intent(this, ListLaporanActivity.class));
                 return true;
             } else if (id == R.id.agenda) {
