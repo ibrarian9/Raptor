@@ -158,6 +158,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/nama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -165,6 +166,7 @@
                 android:text="test123.." />
 
             <TextView
+                android:id="@+id/nim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -172,6 +174,7 @@
                 android:text="12000000" />
 
             <TextView
+                android:id="@+id/tglmulai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -225,7 +228,8 @@
             android:background="@color/white">
 
             <TextView
-                android:text="Budi S.T, M.T"
+                android:id="@+id/dospem"
+                android:text="@string/loading"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:padding="10dp"
@@ -234,7 +238,8 @@
                 android:layout_weight="1"/>
 
             <TextView
-                android:text="Hartono S.T, M.T"
+                android:id="@+id/pembimbing"
+                android:text="@string/loading"
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:padding="10dp"
@@ -422,10 +427,10 @@
         android:id="@+id/botNavbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/blue_400"
-        app:itemIconTint="@color/black"
+        android:background="@color/blue_900"
+        app:itemIconTint="@color/white"
         app:itemTextColor="@color/black"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

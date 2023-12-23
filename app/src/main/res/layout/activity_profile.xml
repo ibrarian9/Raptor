@@ -22,10 +22,11 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
             <ImageView
-                android:padding="5dp"
+                android:paddingEnd="5dp"
                 android:layout_width="70dp"
                 android:layout_height="60dp"
                 android:src="@drawable/baseline_account_circle_24"
@@ -55,6 +56,20 @@
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+         <TextView
+             android:layout_gravity="center_vertical"
+             android:gravity="center"
+             android:layout_width="50dp"
+             android:layout_height="50dp"
+             android:text="Edit"
+             android:textColor="@color/black"
+             android:textSize="15sp"
+             app:drawableTopCompat="@drawable/baseline_mode_24" />
 
         </LinearLayout>
 
@@ -82,11 +97,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/nama"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -98,12 +116,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:inputType="textEmailAddress"
+                android:gravity="center_vertical"
                 android:layout_marginBottom="20dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -115,11 +135,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/judulkp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -131,11 +154,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/semester"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -147,11 +173,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tglmulai"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -163,11 +192,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/dospem"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -179,11 +211,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/instansi"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -221,10 +256,10 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/blue_400"
-        app:itemIconTint="@color/black"
+        android:background="@color/blue_900"
+        app:itemIconTint="@color/white"
         app:itemTextColor="@color/black"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -86,7 +86,7 @@ public class SignUpActivity extends AppCompatActivity {
                         assert user != null;
                         String uid = user.getUid();
 
-                        UserDetails newUser = new UserDetails("","","","","", email);
+                        UserDetails newUser = new UserDetails("","","","","", email, "");
                         DatabaseReference db = FirebaseDatabase.getInstance().getReference("Users");
                         db.child(uid).setValue(newUser).addOnCompleteListener(t -> {
                            if (t.isSuccessful()){

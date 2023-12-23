@@ -124,22 +124,6 @@
                 android:textSize="12sp"
                 android:textColor="@color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tambahkan Foto"
-                android:textSize="12sp"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/foto"
-                android:background="@drawable/bg_black_straight"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginBottom="20dp"
-                android:textSize="12sp"
-                android:textColor="@color/black" />
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -148,10 +132,10 @@
         android:id="@+id/botNavbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/blue_400"
-        app:itemIconTint="@color/black"
+        android:background="@color/blue_900"
+        app:itemIconTint="@color/white"
         app:itemTextColor="@color/black"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -2,7 +2,10 @@ package com.app.raptor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.raptor.Adapter.LaporanAdapter;
 import com.app.raptor.Models.Laporan;
 import com.app.raptor.Models.UserDetails;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,8 +25,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ListLaporanActivity extends AppCompatActivity {
@@ -30,26 +36,35 @@ public class ListLaporanActivity extends AppCompatActivity {
     FloatingActionButton plusBtn;
     BottomNavigationView botNavbar;
     TextView okay, nama, nim;
+    RecyclerView rv;
     ImageView close;
     CalendarView calender;
     FirebaseAuth mAuth;
     FirebaseUser user;
+    LaporanAdapter laporanAdapter;
     String hari, bulan, tgl, tahun, uid;
+    ArrayList<Laporan> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_laporan);
 
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        assert user != null;
+        uid = user.getUid();
+
         nama = findViewById(R.id.nama);
         nim = findViewById(R.id.nim);
         plusBtn = findViewById(R.id.fabAdd);
         botNavbar = findViewById(R.id.bottomNavigationView);
 
-        mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
-        assert user != null;
-        uid = user.getUid();
+        laporanAdapter = new LaporanAdapter(this, list);
+        rv = findViewById(R.id.rv);
+        rv.setAdapter(laporanAdapter);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("Users").child(uid);
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -61,6 +76,27 @@ public class ListLaporanActivity extends AppCompatActivity {
                     nama.setText(sNama);
                     nim.setText(sNim);
                 }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        Query listLaporan = FirebaseDatabase.getInstance().getReference("Laporan").child(uid);
+        listLaporan.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                laporanAdapter.clear();
+
+                for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                    Laporan lapor = snapshot1.getValue(Laporan.class);
+                    list.add(lapor);
+                }
+
+                laporanAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -103,6 +139,7 @@ public class ListLaporanActivity extends AppCompatActivity {
                     hari = "Sabtu";
                 }
 
+                //  Define Month
                 if (bul == 1){
                     bulan = "Januari";
                 } else if (bul == 2) {
