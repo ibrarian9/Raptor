@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailLaporanActivity">
+    tools:context=".Mahasiswa.DetailLaporanActivity">
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:layout_width="60dp"
@@ -134,8 +134,8 @@
         android:layout_height="60dp"
         android:background="@color/blue_900"
         app:itemIconTint="@color/white"
-        app:itemTextColor="@color/black"
-        app:labelVisibilityMode="unlabeled"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

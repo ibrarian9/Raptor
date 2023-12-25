@@ -15,28 +15,43 @@
         android:theme="@style/Theme.Raptor"
         tools:targetApi="31">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".NotifikasiActivity"
             android:exported="false" />
         <activity
-            android:name=".HasilLaporanActivity"
+            android:name=".Dospem.LaporanDetailDospemActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Dospem.LaporanDospemActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailLaporanActivity"
+            android:name=".Dospem.ProfileDospemActivity"
             android:exported="false" />
         <activity
-            android:name=".ListLaporanActivity"
+            android:name=".Dospem.DospemActivityHome"
             android:exported="false" />
         <activity
-            android:name=".FormLaporanActivity"
+            android:name=".Mahasiswa.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Mahasiswa.HasilLaporanActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Mahasiswa.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mahasiswa.DetailLaporanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mahasiswa.ListLaporanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mahasiswa.FormLaporanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mahasiswa.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Mahasiswa.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

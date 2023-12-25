@@ -1,14 +1,15 @@
 package com.app.raptor.Models;
 
 public class UserDetails {
-    private String nama, nim, judulkp, dospem, pembimbing, email, tglMulai;
+    private String nama, nim, judulkp, semester, dospem, pembimbing, email, tglMulai;
 
     public UserDetails(){}
 
-    public UserDetails(String nama, String nim, String judulkp, String dospem, String pembimbing, String email, String tglMulai) {
+    public UserDetails(String nama, String nim, String judulkp, String semester, String dospem, String pembimbing, String email, String tglMulai) {
         this.nama = nama;
         this.nim = nim;
         this.judulkp = judulkp;
+        this.semester = semester;
         this.dospem = dospem;
         this.pembimbing = pembimbing;
         this.email = email;
@@ -37,6 +38,14 @@ public class UserDetails {
 
     public void setJudulkp(String judulkp) {
         this.judulkp = judulkp;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
     }
 
     public String getDospem() {

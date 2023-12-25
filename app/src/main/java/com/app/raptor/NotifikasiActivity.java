@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DetailLaporanActivity extends AppCompatActivity {
+public class NotifikasiActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_laporan);
+        setContentView(R.layout.activity_notifikasi);
     }
 }

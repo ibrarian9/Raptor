@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Mahasiswa.FormLaporanActivity">
+    tools:context=".Dospem.LaporanDospemActivity">
 
     <RelativeLayout
         android:id="@+id/rl"
@@ -94,48 +93,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lokasi"
+                android:text="Saran"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/edLokasi"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="20dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:background="@drawable/bg_black_straight"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Narasumber"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/edNarasumber"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginBottom="20dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:background="@drawable/bg_black_straight"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kegiatan"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/edKegiatan"
+                android:id="@+id/edSaran"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="20dp"
@@ -153,51 +116,13 @@
                 android:textSize="12sp" />
 
             <EditText
-                android:id="@+id/pembimbing"
+                android:id="@+id/edPoto"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_grey"
-                    android:paddingStart="20dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="5dp"
-                    android:text="Draft"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/tvSimpan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:background="@drawable/bg_grey"
-                    android:paddingStart="20dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="5dp"
-                    android:text="Simpan"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ProfileActivity">
+    tools:context=".Mahasiswa.ProfileActivity">
 
     <LinearLayout
         android:id="@+id/ll1"
@@ -56,12 +56,14 @@
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
          <TextView
+             android:id="@+id/edit"
              android:layout_gravity="center_vertical"
              android:gravity="center"
              android:layout_width="50dp"
@@ -223,31 +225,6 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:background="@drawable/bg_grey"
-                    android:paddingStart="20dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="20dp"
-                    android:paddingBottom="5dp"
-                    android:text="Simpan"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -258,8 +235,8 @@
         android:layout_height="60dp"
         android:background="@color/blue_900"
         app:itemIconTint="@color/white"
-        app:itemTextColor="@color/black"
-        app:labelVisibilityMode="unlabeled"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

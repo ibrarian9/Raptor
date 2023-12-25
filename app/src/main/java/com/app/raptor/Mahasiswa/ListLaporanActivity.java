@@ -1,4 +1,4 @@
-package com.app.raptor;
+package com.app.raptor.Mahasiswa;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.app.raptor.Adapter.LaporanAdapter;
 import com.app.raptor.Models.Laporan;
 import com.app.raptor.Models.UserDetails;
+import com.app.raptor.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,7 +43,7 @@ public class ListLaporanActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser user;
     LaporanAdapter laporanAdapter;
-    String hari, bulan, tgl, tahun, uid;
+    String hari, bulan, tgl, tahun, uid, checkTgl;
     ArrayList<Laporan> list = new ArrayList<>();
 
     @Override
@@ -75,6 +76,7 @@ public class ListLaporanActivity extends AppCompatActivity {
                     String sNim = uDetail.getNim();
                     nama.setText(sNama);
                     nim.setText(sNim);
+                    checkTgl = uDetail.getTglMulai();
                 }
             }
             @Override
@@ -176,14 +178,21 @@ public class ListLaporanActivity extends AppCompatActivity {
                 if (tanggal.contains("null")){
                     Toast.makeText(this, "Tanggal Belum di Isi...", Toast.LENGTH_SHORT).show();
                 } else {
+
+                    if (checkTgl == null || checkTgl.isEmpty()){
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+                        reference.child("tglMulai").setValue(tanggal);
+                    }
+
                     Laporan laporan = new Laporan(tanggal,"","","","","","");
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Laporan").child(uid);
-                    databaseReference.child(tanggal).setValue(laporan);
-                    Intent i = new Intent(this, FormLaporanActivity.class);
-                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
-                    i.putExtra("date", tanggal);
-                    startActivity(i);
-                    finish();
+                    databaseReference.child(tanggal).setValue(laporan).addOnCompleteListener( v1 -> {
+                        Intent i = new Intent(this, FormLaporanActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                        i.putExtra("date", tanggal);
+                        startActivity(i);
+                        finish();
+                    });
                     dialog.dismiss();
                 }
             });
