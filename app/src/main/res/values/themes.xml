@@ -14,6 +14,9 @@
         <!-- Customize your theme here. -->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="android:editTextColor">@android:color/black</item>
     </style>
 
     <style name="CalenderViewWeeks" parent="android:TextAppearance.DeviceDefault.Small">

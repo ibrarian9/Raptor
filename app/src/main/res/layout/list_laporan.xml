@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/bg_black_edge"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,21 +7,38 @@
     android:layout_marginEnd="30dp"
     android:layout_marginTop="20dp"
     android:padding="10dp"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvTgl"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:text="@string/loading"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvAgenda"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tvTgl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/loading"/>
+
+        <TextView
+            android:id="@+id/tvAgenda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:text="@string/loading"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:text="@string/loading"/>
+        android:src="@android:drawable/ic_menu_delete"
+        android:contentDescription="TODO" />
+
 </LinearLayout>

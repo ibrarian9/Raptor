@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,13 +61,14 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.SearchView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/bg_black_edge"
         app:iconifiedByDefault="false"
         app:queryHint="Cari..."
+        app:searchIcon="@android:drawable/ic_menu_search"
         android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

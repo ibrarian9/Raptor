@@ -12,7 +12,8 @@
         android:id="@+id/extendFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:text="Back"
@@ -25,7 +26,7 @@
 
     <LinearLayout
         android:id="@+id/ll1"
-        android:layout_margin="40dp"
+        android:layout_marginTop="70dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

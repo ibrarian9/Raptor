@@ -4,44 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Mahasiswa.DetailLaporanActivity">
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:layout_width="60dp"
-        android:layout_margin="10dp"
+        android:id="@+id/extendFab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/baseline_arrow_24"
-        android:text="Back"
+        android:layout_marginStart="10dp"
         android:textColor="@color/black"
         android:textSize="12sp"
-        android:background="@android:color/transparent"
+        android:text="Back"
+        android:layout_marginTop="40dp"
+        app:icon="@drawable/baseline_arrow_24"
+        android:outlineAmbientShadowColor="@android:color/transparent"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        app:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/ll1"
-        android:layout_width="335dp"
-        android:layout_height="37dp"
-        android:layout_margin="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+        <View
+            android:layout_width="50dp"
+            android:layout_height="2dp"
+            android:layout_marginEnd="20dp"/>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Laporan Harian Kerja Praktek"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laporan Harian Kerja Praktek"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Program Studi Teknik Informatika"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Program Studi Teknik Informatika"
+            android:id="@+id/tvEdit"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="Edit"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="15sp"
+            app:drawableTopCompat="@drawable/baseline_mode_24" />
 
     </LinearLayout>
 
@@ -68,13 +97,15 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/nama"
-                android:background="@drawable/bg_black_straight"
+                android:id="@+id/agenda"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:textSize="12sp"
-                android:textColor="@color/black" />
+                android:background="@drawable/bg_black_straight"
+                android:padding="10dp"
+                android:text="@string/loading"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,12 +115,14 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/nim"
+                android:id="@+id/waktu"
                 android:background="@drawable/bg_black_straight"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:textSize="12sp"
+                android:padding="10dp"
+                android:text="@string/loading"
+                android:textSize="15sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -100,12 +133,14 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/judul"
+                android:id="@+id/lokasi"
                 android:background="@drawable/bg_black_straight"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:textSize="12sp"
+                android:padding="10dp"
+                android:text="@string/loading"
+                android:textSize="15sp"
                 android:textColor="@color/black" />
 
             <TextView
@@ -116,12 +151,34 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/dospem"
+                android:id="@+id/narasumber"
                 android:background="@drawable/bg_black_straight"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
                 android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:text="@string/loading"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kegiatan"
                 android:textSize="12sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/kegiatan"
+                android:background="@drawable/bg_black_straight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:text="@string/loading"
+                android:textSize="15sp"
                 android:textColor="@color/black" />
 
         </LinearLayout>

@@ -2,6 +2,7 @@ package com.app.raptor.Mahasiswa;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,11 +62,13 @@ public class ListLaporanActivity extends AppCompatActivity {
         nim = findViewById(R.id.nim);
         plusBtn = findViewById(R.id.fabAdd);
         botNavbar = findViewById(R.id.bottomNavigationView);
+        androidx.appcompat.widget.SearchView searchView = findViewById(R.id.sv);
 
         laporanAdapter = new LaporanAdapter(this, list);
         rv = findViewById(R.id.rv);
         rv.setAdapter(laporanAdapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setVisibility(View.VISIBLE);
 
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("Users").child(uid);
         db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -96,7 +100,6 @@ public class ListLaporanActivity extends AppCompatActivity {
                     Laporan lapor = snapshot1.getValue(Laporan.class);
                     list.add(lapor);
                 }
-
                 laporanAdapter.notifyDataSetChanged();
 
             }
@@ -167,9 +170,6 @@ public class ListLaporanActivity extends AppCompatActivity {
                 } else if (bul == 12) {
                     bulan = "Desember";
                 }
-
-                System.out.println(bulan);
-                System.out.println(hari);
             });
 
             okay = dialog.findViewById(R.id.ok);
@@ -178,8 +178,7 @@ public class ListLaporanActivity extends AppCompatActivity {
                 if (tanggal.contains("null")){
                     Toast.makeText(this, "Tanggal Belum di Isi...", Toast.LENGTH_SHORT).show();
                 } else {
-
-                    if (checkTgl == null || checkTgl.isEmpty()){
+                    if (checkTgl == null || checkTgl.isEmpty()) {
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(uid);
                         reference.child("tglMulai").setValue(tanggal);
                     }
@@ -199,6 +198,20 @@ public class ListLaporanActivity extends AppCompatActivity {
             dialog.show();
         });
 
+        searchView.setIconified(true);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String text) {
+                filterList(text);
+                return true;
+            }
+        });
+
         botNavbar.setOnItemSelectedListener(i -> {
             int id = i.getItemId();
             if (id == R.id.beranda){
@@ -212,5 +225,15 @@ public class ListLaporanActivity extends AppCompatActivity {
             }
             return false;
         });
+    }
+
+    private void filterList(String text) {
+        ArrayList<Laporan> data = new ArrayList<>();
+        for (Laporan i : list) {
+            if (i.getAgenda().toLowerCase().contains(text.toLowerCase()) || i.getTanggal().toLowerCase().contains(text.toLowerCase())) {
+                    data.add(i);
+            }
+        }
+        laporanAdapter.filterList(data);
     }
 }
