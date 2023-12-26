@@ -28,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ProfileActivity extends AppCompatActivity {
 
     BottomNavigationView botNavbar;
-    TextView nama, nim, edNama, edEmail, edJudulkp, semester, tanggal, dospem, pembimbing, btnEdit;
+    TextView nama, nim, edNama, edEmail, edJudulkp, semester, tanggal, dospem, pembimbing, btnEdit, logout;
     FirebaseAuth mAuth;
     FirebaseUser user;
     String uid, sNim, sNama, sEmail, sJudul, sDospem, sPembimbing, sTgl, sSem;
@@ -50,12 +50,35 @@ public class ProfileActivity extends AppCompatActivity {
         dospem = findViewById(R.id.dospem);
         pembimbing = findViewById(R.id.instansi);
         btnEdit = findViewById(R.id.edit);
+        logout = findViewById(R.id.logout);
 
         //  Get Current User Data
         mAuth = FirebaseAuth.getInstance();
         user = mAuth.getCurrentUser();
         assert user != null;
         uid = user.getUid();
+
+
+        Dialog dialog = new Dialog(this);
+        logout.setOnClickListener(v -> {
+            dialog.setContentView(R.layout.logout_dialog);
+            dialog.setCancelable(false);
+            dialogFull(dialog);
+
+            TextView no = dialog.findViewById(R.id.no);
+            no.setOnClickListener( v1 -> dialog.dismiss());
+
+            TextView yes = dialog.findViewById(R.id.yes);
+            yes.setOnClickListener( v2 -> {
+                mAuth.signOut();
+                Intent i = new Intent(this, LoginActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                startActivity(i);
+                finish();
+                dialog.dismiss();
+            });
+            dialog.show();
+        });
 
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("Users").child(uid);
         db.addListenerForSingleValueEvent(new ValueEventListener() {

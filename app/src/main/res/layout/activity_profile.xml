@@ -225,6 +225,16 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
+            <TextView
+                android:id="@+id/logout"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="SIGN OUT"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:background="@drawable/bg_blue_600" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

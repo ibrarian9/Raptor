@@ -426,7 +426,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/botNavbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:background="@color/blue_900"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
