@@ -39,6 +39,9 @@
             android:name=".Mahasiswa.ProfileActivity"
             android:exported="false" />
         <activity
+            android:name=".Mahasiswa.LaporanFile"
+            android:exported="false" />
+        <activity
             android:name=".Mahasiswa.DetailLaporanActivity"
             android:exported="false" />
         <activity

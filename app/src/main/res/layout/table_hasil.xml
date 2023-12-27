@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/no"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:layout_column="0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_black_no_corners"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_weight="3"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_column="1"
+                android:layout_width="0dp"
+                android:background="@drawable/bg_black_no_corners"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/agenda"
+                    android:text="Wawancara Pihak IT"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:justificationMode="inter_word"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tanggal"
+                    android:text="Wawancara Pihak IT"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:justificationMode="inter_word"
+                    android:textSize="10sp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/waktu"
+                    android:text="Wawancara Pihak IT"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:justificationMode="inter_word"
+                    android:textSize="10sp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/lokasi"
+                    android:text="Wawancara Pihak IT"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:justificationMode="inter_word"
+                    android:textSize="10sp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/narasumber"
+                    android:text="Wawancara Pihak IT"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:justificationMode="inter_word"
+                    android:textSize="10sp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/kegiatan"
+                    android:text="Wawancara Pihak IT"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"
+                    android:justificationMode="inter_word"
+                    android:textSize="10sp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:layout_column="2"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_black_no_corners"
+                android:gravity="center"
+                android:layout_weight="3"/>
+
+            <TextView
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:layout_column="3"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_black_no_corners"
+                android:gravity="center"
+                android:layout_weight="1"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
