@@ -14,6 +14,9 @@
         <!-- Customize your theme here. -->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <!-- Font style-->
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="fontFamily">@font/poppins_medium</item>
 
         <item name="android:textColorHint">@android:color/darker_gray</item>
         <item name="android:editTextColor">@android:color/black</item>

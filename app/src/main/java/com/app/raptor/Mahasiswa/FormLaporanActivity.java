@@ -87,6 +87,7 @@ public class FormLaporanActivity extends AppCompatActivity {
                 dRef.child("lokasi").setValue(lokasi);
                 dRef.child("narasumber").setValue(narasumber);
                 dRef.child("kegiatan").setValue(kegiatan);
+                Toast.makeText(this, "Laporan Berhasil Disimpan...", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(this, ListLaporanActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
                 startActivity(i);

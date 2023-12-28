@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,7 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="25dp"
+        android:layout_marginTop="50dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +25,7 @@
             android:layout_width="70dp"
             android:layout_height="60dp"
             android:contentDescription="TODO"
-            android:paddingEnd="5dp"
+            android:layout_marginEnd="5dp"
             android:src="@drawable/baseline_account_circle_24" />
 
         <LinearLayout
@@ -56,6 +59,7 @@
             android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/edit"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
@@ -104,6 +108,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="15sp"
+                android:inputType="text"
+                android:backgroundTint="@color/black"
                 android:text=""
                 android:textColor="@color/black" />
 
@@ -127,7 +133,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/akun_icon" />
+                android:src="@drawable/baseline_email_24" />
 
             <EditText
                 android:id="@+id/edNip"
@@ -136,6 +142,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="15sp"
+                android:inputType="number"
+                android:backgroundTint="@color/black"
                 android:text=""
                 android:textColor="@color/black" />
 
@@ -168,6 +176,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="15sp"
+                android:inputType="phone"
+                android:backgroundTint="@color/black"
                 android:text=""
                 android:textColor="@color/black" />
 
@@ -191,7 +201,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/baseline_email_24" />
+                android:src="@drawable/baseline_alt_email_24" />
 
             <EditText
                 android:id="@+id/edEmail"
@@ -200,6 +210,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="15sp"
+                android:inputType="textEmailAddress"
+                android:backgroundTint="@color/black"
                 android:text=""
                 android:textColor="@color/black" />
 
@@ -218,6 +230,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/list_navbar" />
+        app:menu="@menu/list_menu_dosen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

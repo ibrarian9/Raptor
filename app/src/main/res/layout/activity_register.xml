@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +139,7 @@
             android:textSize="12sp"
             android:textColor="@color/coklat"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/dospem"
             android:background="@drawable/bg_black_straight"
             android:layout_width="match_parent"
@@ -148,7 +148,9 @@
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:textSize="12sp"
-            android:textColor="@color/black" />
+            android:prompt="@string/spinner_title"
+            android:textColor="@color/black"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -157,7 +159,7 @@
             android:textSize="12sp"
             android:textColor="@color/coklat"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/pembimbing"
             android:background="@drawable/bg_black_straight"
             android:layout_width="match_parent"
@@ -166,7 +168,9 @@
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:textSize="12sp"
-            android:textColor="@color/black" />
+            android:prompt="@string/spinner_title"
+            android:textColor="@color/black"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/simpan"

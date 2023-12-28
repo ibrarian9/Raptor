@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.raptor.Dospem.DospemActivityHome;
 import com.app.raptor.Models.UserDetails;
 import com.app.raptor.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
-    TextView login, signUp;
+    TextView login;
     FirebaseAuth mAuth;
     EditText edEmail, edPass;
     String email, pass;
@@ -37,17 +38,37 @@ public class LoginActivity extends AppCompatActivity {
             db.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    UserDetails userDet = snapshot.getValue(UserDetails.class);
-                    assert userDet != null;
-                    String nama = userDet.getNama();
-                    if (!nama.equals("")){
-                        startActivity(new Intent(getApplicationContext(), ListLaporanActivity.class));
-                        finish();
+                    if (snapshot.exists()){
+                        String getRole = (String) snapshot.child("role").getValue();
+                        if (getRole == null){
+                            UserDetails userDet = snapshot.getValue(UserDetails.class);
+                            assert userDet != null;
+                            String nama = userDet.getNama();
+                            String nim = userDet.getNim();
+                            String judul = userDet.getJudulkp();
+                            if (!nama.equals("") || !nim.equals("") || !judul.equals("")){
+                                startActivity(new Intent(getApplicationContext(), ListLaporanActivity.class));
+                                finish();
+                            } else {
+                                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                                finish();
+                            }
+                        } else if (getRole.equals("dospem")){
+                            startActivity(new Intent(getApplicationContext(), DospemActivityHome.class));
+                            finish();
+                        }
                     } else {
-                        startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
-                        finish();
+                        email = current.getEmail();
+                        UserDetails userDet = new UserDetails("","","","","","", email,"");
+                        db.child(userId).setValue(userDet).addOnCompleteListener(task -> {
+                            if (task.isSuccessful()){
+                                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                                finish();
+                            }
+                        });
                     }
                 }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
@@ -64,9 +85,6 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         edEmail = findViewById(R.id.edEmail);
         edPass = findViewById(R.id.edPass);
-        signUp = findViewById(R.id.signUp);
-
-        signUp.setOnClickListener( v -> startActivity(new Intent(this, SignUpActivity.class)));
 
         login = findViewById(R.id.login);
         login.setOnClickListener( v -> {
@@ -92,17 +110,34 @@ public class LoginActivity extends AppCompatActivity {
                                db.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                                    @Override
                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                       UserDetails userDet = snapshot.getValue(UserDetails.class);
-                                       assert userDet != null;
-                                       String nama = userDet.getNama();
-                                       Intent i;
-                                       if (nama != null){
-                                           i = new Intent(getApplicationContext(), ListLaporanActivity.class);
+                                       if (snapshot.exists()){
+                                           String getRole = (String) snapshot.child("role").getValue();
+                                           if (getRole == null){
+                                               UserDetails userDet = snapshot.getValue(UserDetails.class);
+                                               assert userDet != null;
+                                               String nama = userDet.getNama();
+                                               String nim = userDet.getNim();
+                                               String judul = userDet.getJudulkp();
+                                               if (!nama.equals("") || !nim.equals("") || !judul.equals("")){
+                                                   startActivity(new Intent(getApplicationContext(), ListLaporanActivity.class));
+                                                   finish();
+                                               } else {
+                                                   startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                                                   finish();
+                                               }
+                                           } else {
+                                               startActivity(new Intent(getApplicationContext(), DospemActivityHome.class));
+                                               finish();
+                                           }
                                        } else {
-                                           i = new Intent(getApplicationContext(), RegisterActivity.class);
+                                           UserDetails userDet = new UserDetails("","","","","","",email,"");
+                                           db.child(userId).setValue(userDet).addOnCompleteListener(task -> {
+                                               if (task.isSuccessful()){
+                                                   startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                                                   finish();
+                                               }
+                                           });
                                        }
-                                       startActivity(i);
-                                       finish();
                                    }
 
                                    @Override

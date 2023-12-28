@@ -5,6 +5,20 @@
     <string name="cari">Cari</string>
     <string name="agenda">Agenda</string>
     <string name="profil">Profil</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
+    <string name="pilih">Pilih Dosen</string>
     <string name="anda_yakin_ingin_menghapus">Anda yakin ingin menghapus ?</string>
+    <string name="spinner_title" />
+    <string name="notif">Notif</string>
+    <string-array name="dosen">
+        <item>Reski Mai Chandra S.T., M.Sc</item>
+        <item>Pizaini S.T., M.Kom</item>
+        <item>Yelfi Vitriani, S.Kom., MMSI.</item>
+        <item>Liza Afriyanti, S.Kom., M.Kom.</item>
+        <item>Fitra Kurnia, S.Kom., M.T.</item>
+    </string-array>
+    <string-array name="instansi">
+        <item>Budi S.T., M.T</item>
+        <item>Budianto S.T</item>
+    </string-array>
 </resources>
