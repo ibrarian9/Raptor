@@ -7,16 +7,26 @@
     android:background="@color/white"
     tools:context=".Dospem.LaporanDospemActivity">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/blue_900"
+        app:layout_constraintBottom_toTopOf="@+id/rl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="30dp"
         android:background="@color/blue_900"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:id="@+id/back"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="40dp"
@@ -31,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
+            android:gravity="center_vertical"
             android:text="@string/loading"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -66,6 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"
@@ -84,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
+                android:gravity="center_vertical"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:background="@drawable/bg_black_straight"

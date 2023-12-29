@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Raptor"
         tools:targetApi="31">
         <activity
-            android:name=".NotifikasiActivity"
+            android:name=".Dospem.NotifikasiActivity"
             android:exported="false" />
         <activity
             android:name=".Dospem.LaporanDetailDospemActivity"

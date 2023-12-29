@@ -5,26 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".NotifikasiActivity">
+    tools:context=".Dospem.NotifikasiActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <RelativeLayout
+        android:id="@+id/rl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawablePadding="10dp"
-        android:padding="20dp"
-        android:text="Notifikasi"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:drawableStartCompat="@drawable/baseline_back_24"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="30dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/baseline_back_24"
+            app:tint="@color/black"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/tvTanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_toEndOf="@+id/back"
+            android:gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:text="Notifikasi"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/rl" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/botNavbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_900"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/list_menu_dosen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

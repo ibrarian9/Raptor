@@ -42,15 +42,15 @@
                     android:text="@string/loading"
                     android:layout_weight="1"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:layout_width="match_parent"
                     android:layout_height="0dp" />
 
                 <TextView
                     android:id="@+id/nim"
                     android:text="@string/loading"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.raptor.Mahasiswa.LoginActivity;
 import com.app.raptor.Models.Dosen;
 import com.app.raptor.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,9 +27,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ProfileDospemActivity extends AppCompatActivity {
 
     BottomNavigationView botnav;
@@ -36,7 +34,7 @@ public class ProfileDospemActivity extends AppCompatActivity {
     FirebaseUser fUser;
     String uid, sNama, sNip, sNohp, sEmail;
     EditText nama, nip, noHp, email;
-    TextView tvNama, tvNip, edit;
+    TextView tvNama, tvNip, edit, logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +54,7 @@ public class ProfileDospemActivity extends AppCompatActivity {
         tvNama = findViewById(R.id.tvNama);
         tvNip = findViewById(R.id.tvNim);
         edit = findViewById(R.id.edit);
+        logout = findViewById(R.id.logout);
 
         nama.setEnabled(false);
         nip.setEnabled(false);
@@ -145,12 +144,34 @@ public class ProfileDospemActivity extends AppCompatActivity {
             d.show();
         });
 
+        Dialog dialog = new Dialog(this);
+        logout.setOnClickListener(v -> {
+            dialog.setContentView(R.layout.logout_dialog);
+            dialog.setCancelable(false);
+            dialogFull(dialog);
+
+            TextView no = dialog.findViewById(R.id.no);
+            no.setOnClickListener( v1 -> dialog.dismiss());
+
+            TextView yes = dialog.findViewById(R.id.yes);
+            yes.setOnClickListener( v2 -> {
+                mAuth.signOut();
+                Intent i = new Intent(this, LoginActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                startActivity(i);
+                finish();
+                dialog.dismiss();
+            });
+            dialog.show();
+        });
+
         botnav.setOnItemSelectedListener(i -> {
             int id = i.getItemId();
             if (id == R.id.beranda){
                 startActivity(new Intent(this, DospemActivityHome.class));
                 return true;
             } else if (id == R.id.notif) {
+                startActivity(new Intent(this, NotifikasiActivity.class));
                 return true;
             } else return id == R.id.profil;
         });

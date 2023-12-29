@@ -53,7 +53,7 @@
             android:inputType="textEmailAddress"
             android:drawablePadding="10dp"
             android:drawableStart="@drawable/akun_icon"
-            android:hint="Username Dan Email"/>
+            android:hint="Email"/>
 
         <EditText
             android:id="@+id/edPass"
@@ -78,6 +78,7 @@
             android:layout_marginTop="40dp"
             android:background="@drawable/bg_blue_600"
             android:gravity="center"
+            android:textColor="@color/blue_900"
             android:text="LOGIN"
             android:textSize="16sp" />
 

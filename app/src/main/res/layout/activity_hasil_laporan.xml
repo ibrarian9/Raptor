@@ -190,7 +190,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-                android:text="test123.." />
+                android:text="@string/loading" />
 
             <TextView
                 android:id="@+id/nim"
@@ -198,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-                android:text="12000000" />
+                android:text="@string/loading" />
 
             <TextView
                 android:id="@+id/tglmulai"
@@ -206,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:textColor="@color/black"
-                android:text="12000000" />
+                android:text="@string/loading" />
 
         </LinearLayout>
 

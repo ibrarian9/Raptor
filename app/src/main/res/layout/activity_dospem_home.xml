@@ -41,15 +41,15 @@
                     android:text="@string/loading"
                     android:layout_weight="1"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:layout_width="match_parent"
                     android:layout_height="0dp" />
 
                 <TextView
                     android:id="@+id/nim"
                     android:text="@string/loading"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -88,9 +88,11 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="10dp"
+        tools:listitem="@layout/list_mahasiswa"
         app:layout_constraintBottom_toTopOf="@+id/botNavbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

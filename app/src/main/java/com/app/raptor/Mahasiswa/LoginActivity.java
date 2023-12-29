@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView login;
     FirebaseAuth mAuth;
     EditText edEmail, edPass;
-    String email, pass;
+    String email, pass, uid;
 
     protected void onStart() {
         super.onStart();
@@ -33,9 +33,9 @@ public class LoginActivity extends AppCompatActivity {
         //  Check if user Signed
         FirebaseUser current = mAuth.getCurrentUser();
         if (current != null){
-            String userId = current.getUid();
+            uid = current.getUid();
             DatabaseReference db = FirebaseDatabase.getInstance().getReference("Users");
-            db.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            db.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()){
@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     } else {
                         email = current.getEmail();
-                        UserDetails userDet = new UserDetails("","","","","","", email,"");
-                        db.child(userId).setValue(userDet).addOnCompleteListener(task -> {
+                        UserDetails userDet = new UserDetails("","","","","","", email,"", uid);
+                        db.child(uid).setValue(userDet).addOnCompleteListener(task -> {
                             if (task.isSuccessful()){
                                 startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
                                 finish();
@@ -104,10 +104,10 @@ public class LoginActivity extends AppCompatActivity {
                                mAuth = FirebaseAuth.getInstance();
                                FirebaseUser user = mAuth.getCurrentUser();
                                assert user != null;
-                               String userId = user.getUid();
+                               uid = user.getUid();
 
                                DatabaseReference db = FirebaseDatabase.getInstance().getReference("Users");
-                               db.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                               db.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                                    @Override
                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
                                        if (snapshot.exists()){
@@ -130,8 +130,8 @@ public class LoginActivity extends AppCompatActivity {
                                                finish();
                                            }
                                        } else {
-                                           UserDetails userDet = new UserDetails("","","","","","",email,"");
-                                           db.child(userId).setValue(userDet).addOnCompleteListener(task -> {
+                                           UserDetails userDet = new UserDetails("","","","","","",email,"", uid);
+                                           db.child(uid).setValue(userDet).addOnCompleteListener(task -> {
                                                if (task.isSuccessful()){
                                                    startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
                                                    finish();

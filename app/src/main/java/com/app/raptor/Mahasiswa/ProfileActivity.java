@@ -168,7 +168,7 @@ public class ProfileActivity extends AppCompatActivity {
                     Toast.makeText(this, "Pembimbing Instansi Masih Kosong...", Toast.LENGTH_SHORT).show();
                 } else {
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users").child(uid);
-                    UserDetails userData = new UserDetails(dataNama, sNim, dataJudul, dataSem, dataDospem, dataInstansi, dataEmail, dataTgl);
+                    UserDetails userData = new UserDetails(dataNama, sNim, dataJudul, dataSem, dataDospem, dataInstansi, dataEmail, dataTgl, uid);
                     ref.setValue(userData).addOnCompleteListener( t -> {
                        if (t.isSuccessful()){
                            Toast.makeText(this, "Data Berhasil di Update...", Toast.LENGTH_SHORT).show();

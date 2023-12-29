@@ -179,6 +179,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_blue_600"
                 android:gravity="center"
+                android:textColor="@color/blue_900"
                 android:text="Batal"
                 android:textSize="16sp" />
 
@@ -193,6 +194,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_blue_600"
                 android:gravity="center"
+                android:textColor="@color/blue_900"
                 android:text="Simpan"
                 android:textSize="16sp" />
 
