@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class DetailLaporanActivity extends AppCompatActivity {
 
     TextView agenda, waktu, lokasi, narasumber, kegiatan, edit;
-    String dataAgenda, dataWaktu, dataLokasi, dataNarasumber, dataKegiatan, dataTanggal, uid;
+    String dataAgenda, dataWaktu, dataLokasi, dataNarasumber, dataKegiatan, dataTanggal, uid, dataFoto;
     ExtendedFloatingActionButton back;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -56,6 +56,7 @@ public class DetailLaporanActivity extends AppCompatActivity {
         dataNarasumber = getIntent().getStringExtra("narasumber");
         dataKegiatan = getIntent().getStringExtra("kegiatan");
         dataTanggal = getIntent().getStringExtra("tanggal");
+        dataFoto = getIntent().getStringExtra("foto");
 
         agenda.setText(dataAgenda);
         waktu.setText(dataWaktu);
@@ -110,7 +111,7 @@ public class DetailLaporanActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(sKegiatan)){
                     Toast.makeText(this, "Kegiatan masih kosong...", Toast.LENGTH_SHORT).show();
                 } else {
-                    Laporan laporan = new Laporan(dataTanggal, sAgenda, sWaktu, sLokasi, sNara, sKegiatan, "");
+                    Laporan laporan = new Laporan(dataTanggal, sAgenda, sWaktu, sLokasi, sNara, sKegiatan, dataFoto);
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Laporan").child(uid).child(dataTanggal);
                     ref.setValue(laporan).addOnCompleteListener(task -> {
                         if (task.isSuccessful()){
@@ -128,7 +129,7 @@ public class DetailLaporanActivity extends AppCompatActivity {
             });
             d.show();
         });
-        back.setOnClickListener( v -> onBackPressed());
+        back.setOnClickListener( v -> getOnBackPressedDispatcher().onBackPressed());
     }
 
     private void dialogFull(Dialog d) {

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class ListLaporanActivity extends AppCompatActivity {
     CalendarView calender;
     FirebaseAuth mAuth;
     FirebaseUser user;
+    ProgressBar progressBar;
     LaporanAdapter laporanAdapter;
     String hari, bulan, tgl, tahun, uid, checkTgl;
     ArrayList<Laporan> list = new ArrayList<>();
@@ -62,6 +64,7 @@ public class ListLaporanActivity extends AppCompatActivity {
         nim = findViewById(R.id.nim);
         plusBtn = findViewById(R.id.fabAdd);
         botNavbar = findViewById(R.id.bottomNavigationView);
+        progressBar = findViewById(R.id.progressBar);
         androidx.appcompat.widget.SearchView searchView = findViewById(R.id.sv);
 
         laporanAdapter = new LaporanAdapter(this, list);

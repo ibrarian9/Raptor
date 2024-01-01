@@ -54,6 +54,7 @@ public class LaporanDosenAdapter extends RecyclerView.Adapter<LaporanDosenAdapte
             i.putExtra("narasumber", laporan.getNarasumber());
             i.putExtra("kegiatan", laporan.getKegiatan());
             i.putExtra("tanggal", laporan.getTanggal());
+            i.putExtra("foto", laporan.getFoto());
             context.startActivity(i);
         });
     }

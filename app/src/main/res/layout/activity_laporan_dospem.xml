@@ -46,6 +46,20 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:text="Edit"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:contentDescription="TODO"
+            app:drawableTopCompat="@drawable/baseline_mode_24"
+            app:drawableTint="@color/white" />
+
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -110,7 +124,7 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edSaran"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -128,14 +142,27 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <LinearLayout
                 android:id="@+id/edPoto"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="200dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:id="@+id/ivPoto"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@color/blue_900"
+                    android:contentDescription="TODO" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
