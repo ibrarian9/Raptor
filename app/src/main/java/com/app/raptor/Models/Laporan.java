@@ -1,11 +1,11 @@
 package com.app.raptor.Models;
 
 public class Laporan {
-    private String tanggal, agenda, waktu, lokasi, narasumber, kegiatan, foto;
+    private String tanggal, agenda, waktu, lokasi, narasumber, kegiatan, foto, saran;
 
     public Laporan(){}
 
-    public Laporan(String tanggal, String agenda, String waktu, String lokasi, String narasumber, String kegiatan, String foto) {
+    public Laporan(String tanggal, String agenda, String waktu, String lokasi, String narasumber, String kegiatan, String foto, String saran) {
         this.tanggal = tanggal;
         this.agenda = agenda;
         this.waktu = waktu;
@@ -13,6 +13,7 @@ public class Laporan {
         this.narasumber = narasumber;
         this.kegiatan = kegiatan;
         this.foto = foto;
+        this.saran = saran;
     }
 
     public String getTanggal() {
@@ -69,5 +70,13 @@ public class Laporan {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public String getSaran() {
+        return saran;
+    }
+
+    public void setSaran(String saran) {
+        this.saran = saran;
     }
 }

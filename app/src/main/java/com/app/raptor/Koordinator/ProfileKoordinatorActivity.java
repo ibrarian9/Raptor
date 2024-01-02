@@ -1,4 +1,4 @@
-package com.app.raptor.Dospem;
+package com.app.raptor.Koordinator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ProfileDospemActivity extends AppCompatActivity {
+public class ProfileKoordinatorActivity extends AppCompatActivity {
 
     BottomNavigationView botnav;
     FirebaseAuth mAuth;
@@ -35,10 +35,11 @@ public class ProfileDospemActivity extends AppCompatActivity {
     String uid, sNama, sNip, sNohp, sEmail;
     EditText nama, nip, noHp, email;
     TextView tvNama, tvNip, edit, logout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_dospem);
+        setContentView(R.layout.activity_profile_koordinator);
 
         //   Get Id
         mAuth = FirebaseAuth.getInstance();
@@ -52,7 +53,7 @@ public class ProfileDospemActivity extends AppCompatActivity {
         noHp = findViewById(R.id.edNohp);
         email = findViewById(R.id.edEmail);
         tvNama = findViewById(R.id.tvNama);
-        tvNip = findViewById(R.id.tvNim);
+        tvNip = findViewById(R.id.tvNip);
         edit = findViewById(R.id.edit);
         logout = findViewById(R.id.logout);
 
@@ -74,14 +75,15 @@ public class ProfileDospemActivity extends AppCompatActivity {
                         sNohp = dosen.getNoHp();
                         sEmail = dosen.getEmail();
 
-                        tvNama.setText(dosen.getNama());
-                        nama.setText(dosen.getNama());
-                        nip.setText(dosen.getNip());
-                        noHp.setText(dosen.getNoHp());
-                        email.setText(dosen.getEmail());
+                        tvNip.setText(sNip);
+                        tvNama.setText(sNama);
+                        nama.setText(sNama);
+                        nip.setText(sNip);
+                        noHp.setText(sNohp);
+                        email.setText(sEmail);
                     }
                 } else {
-                    Toast.makeText(ProfileDospemActivity.this, "Data user tidak ditemukan...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Data user tidak ditemukan...", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -163,10 +165,9 @@ public class ProfileDospemActivity extends AppCompatActivity {
         botnav.setOnItemSelectedListener(i -> {
             int id = i.getItemId();
             if (id == R.id.beranda){
-                startActivity(new Intent(this, DospemActivityHome.class));
+                startActivity(new Intent(this, KoordinatorActivityHome.class));
                 return true;
             } else if (id == R.id.notif) {
-                startActivity(new Intent(this, NotifikasiActivity.class));
                 return true;
             } else return id == R.id.profil;
         });

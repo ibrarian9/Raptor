@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +48,7 @@ public class ListLaporanActivity extends AppCompatActivity {
     FirebaseUser user;
     ProgressBar progressBar;
     LaporanAdapter laporanAdapter;
+    LinearLayout nothing;
     String hari, bulan, tgl, tahun, uid, checkTgl;
     ArrayList<Laporan> list = new ArrayList<>();
 
@@ -65,13 +67,13 @@ public class ListLaporanActivity extends AppCompatActivity {
         plusBtn = findViewById(R.id.fabAdd);
         botNavbar = findViewById(R.id.bottomNavigationView);
         progressBar = findViewById(R.id.progressBar);
+        nothing = findViewById(R.id.llnothing);
         androidx.appcompat.widget.SearchView searchView = findViewById(R.id.sv);
 
         laporanAdapter = new LaporanAdapter(this, list);
         rv = findViewById(R.id.rv);
         rv.setAdapter(laporanAdapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setVisibility(View.VISIBLE);
 
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("Users").child(uid);
         db.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -104,7 +106,12 @@ public class ListLaporanActivity extends AppCompatActivity {
                     list.add(lapor);
                 }
                 laporanAdapter.notifyDataSetChanged();
-
+                //  Check list
+                if (laporanAdapter.getItemCount() == 0){
+                    nothing.setVisibility(View.VISIBLE);
+                } else {
+                    nothing.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -113,6 +120,7 @@ public class ListLaporanActivity extends AppCompatActivity {
             }
         });
 
+        //  Dialog Add data Date
         Dialog dialog = new Dialog(this);
         plusBtn.setOnClickListener(v -> {
             dialog.setContentView(R.layout.dialog_calender);
@@ -186,7 +194,7 @@ public class ListLaporanActivity extends AppCompatActivity {
                         reference.child("tglMulai").setValue(tanggal);
                     }
 
-                    Laporan laporan = new Laporan(tanggal,"","","","","","");
+                    Laporan laporan = new Laporan(tanggal,"","","","","","","");
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Laporan").child(uid);
                     databaseReference.child(tanggal).setValue(laporan).addOnCompleteListener( v1 -> {
                         Intent i = new Intent(this, FormLaporanActivity.class);

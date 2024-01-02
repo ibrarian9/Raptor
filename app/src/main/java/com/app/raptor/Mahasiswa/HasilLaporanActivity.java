@@ -62,8 +62,6 @@ public class HasilLaporanActivity extends AppCompatActivity {
         //   Set Adapter
         adapter = new HasilLaporanAdapter(this, list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setReverseLayout(true);
-        layoutManager.setStackFromEnd(true);
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(adapter);
 

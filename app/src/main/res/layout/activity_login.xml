@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:fitsSystemWindows="true"
-    tools:context=".Mahasiswa.LoginActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:layout_marginTop="50dp"
@@ -71,11 +71,23 @@
             android:inputType="textPassword"
             android:hint="Password"/>
 
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/blue_900" />
+
         <TextView
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/bg_blue_600"
             android:gravity="center"
             android:textColor="@color/blue_900"
@@ -83,5 +95,6 @@
             android:textSize="16sp" />
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

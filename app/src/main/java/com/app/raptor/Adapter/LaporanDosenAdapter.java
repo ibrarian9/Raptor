@@ -19,12 +19,14 @@ import java.util.ArrayList;
 
 public class LaporanDosenAdapter extends RecyclerView.Adapter<LaporanDosenAdapter.MyViewHolder> {
 
+    String uid;
     Context context;
     private final ArrayList<Laporan> list;
 
-    public LaporanDosenAdapter(Context context, ArrayList<Laporan> list) {
+    public LaporanDosenAdapter(Context context, ArrayList<Laporan> list, String uid) {
         this.context = context;
         this.list = list;
+        this.uid = uid;
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -54,7 +56,9 @@ public class LaporanDosenAdapter extends RecyclerView.Adapter<LaporanDosenAdapte
             i.putExtra("narasumber", laporan.getNarasumber());
             i.putExtra("kegiatan", laporan.getKegiatan());
             i.putExtra("tanggal", laporan.getTanggal());
+            i.putExtra("saran", laporan.getSaran());
             i.putExtra("foto", laporan.getFoto());
+            i.putExtra("uid", uid);
             context.startActivity(i);
         });
     }

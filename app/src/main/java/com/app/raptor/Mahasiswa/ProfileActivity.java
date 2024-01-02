@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.raptor.LoginActivity;
 import com.app.raptor.Models.UserDetails;
 import com.app.raptor.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -133,10 +134,13 @@ public class ProfileActivity extends AppCompatActivity {
             //  Set Data from History Account
             nama.setText(sNama);
             email.setText(sEmail);
+            email.setEnabled(false);
             judulkp.setText(sJudul);
             tglkp.setText(sTgl);
+            tglkp.setEnabled(false);
             sem.setText(sSem);
             dospem.setText(sDospem);
+            dospem.setEnabled(false);
             instansi.setText(sPembimbing);
 
             TextView batal = d.findViewById(R.id.batal);

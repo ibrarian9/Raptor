@@ -74,10 +74,12 @@
             <EditText
                 android:id="@+id/edAgenda"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:paddingTop="15dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -89,13 +91,15 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/edWaktu"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:paddingTop="15dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -110,10 +114,12 @@
             <EditText
                 android:id="@+id/edLokasi"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:paddingTop="15dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -128,10 +134,12 @@
             <EditText
                 android:id="@+id/edNarasumber"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:paddingTop="15dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -146,10 +154,12 @@
             <EditText
                 android:id="@+id/edKegiatan"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:paddingTop="15dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
                 android:gravity="top"
                 android:background="@drawable/bg_black_straight"
                 android:textColor="@color/black"
@@ -165,7 +175,7 @@
             <LinearLayout
                 android:id="@+id/pembimbing"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_black_straight"
@@ -175,8 +185,10 @@
 
                 <ImageView
                     android:id="@+id/ivPoto"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
                     android:src="@android:drawable/ic_menu_camera"
                     android:contentDescription="TODO" />
 
@@ -186,7 +198,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
 
                 <View
                     android:layout_width="0dp"

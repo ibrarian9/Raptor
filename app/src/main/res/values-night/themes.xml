@@ -31,4 +31,8 @@
         <item name="android:textColorPrimary">@color/black</item>
     </style>
 
+    <style name="SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

@@ -4,9 +4,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -39,6 +42,7 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class FormLaporanActivity extends AppCompatActivity {
@@ -47,13 +51,19 @@ public class FormLaporanActivity extends AppCompatActivity {
     FirebaseUser fUser;
     FirebaseStorage storage;
     ImageView potoLaporan, camera, gallery;
+    private int jam, menit;
     Uri download;
     String uid, agenda, waktu, lokasi, narasumber, kegiatan, dataTanggal;
-    TextView tanggal, tvSubmit;
-    EditText edAgenda, edWaktu, edLokasi, edNarasumber, edKegiatan;
+    TextView tanggal, tvSubmit, edWaktu;
+    EditText edAgenda, edLokasi, edNarasumber, edKegiatan;
     ProgressBar progressBar;
     ActivityResultLauncher<Intent> resultLauncherCamera, resultLauncherGallery;
 
+    @Override
+    public void onBackPressed() {
+        //    Disable Back Button
+        Toast.makeText(this, "Tombol kembali di larang...", Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +101,19 @@ public class FormLaporanActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+        });
+
+        edWaktu.setOnClickListener(v -> {
+            final Calendar calendar = Calendar.getInstance();
+            jam = calendar.get( Calendar.HOUR );
+            menit = calendar.get( Calendar.MINUTE );
+
+            @SuppressLint("SetTextI18n")
+            TimePickerDialog timePick = new TimePickerDialog(this, (view, hourOfDay, minute)
+                    -> edWaktu.setText( hourOfDay + ":" + minute ), jam, menit, false);
+            timePick.show();
+            timePick.getButton(TimePickerDialog.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(this, R.color.blue_900));
+            timePick.getButton(TimePickerDialog.BUTTON_POSITIVE).setTextColor(ContextCompat.getColor(this, R.color.blue_900));
         });
 
 
@@ -174,7 +197,7 @@ public class FormLaporanActivity extends AppCompatActivity {
             } else if (TextUtils.isEmpty(kegiatan)){
                 Toast.makeText(this, "Kegiatan Belum diisi...", Toast.LENGTH_SHORT).show();
             } else {
-                Laporan dataLaporan = new Laporan(dataTanggal, agenda, waktu, lokasi, narasumber, kegiatan, download.toString());
+                Laporan dataLaporan = new Laporan(dataTanggal, agenda, waktu, lokasi, narasumber, kegiatan, download.toString(), "");
 
                 DatabaseReference dRef = FirebaseDatabase.getInstance().getReference("Laporan").child(uid).child(dataTanggal);
                 dRef.setValue(dataLaporan).addOnCompleteListener(task -> {
@@ -182,6 +205,7 @@ public class FormLaporanActivity extends AppCompatActivity {
                     if (progressBar.isAnimating()){
                         progressBar.setVisibility(View.GONE);
                     }
+
                     Toast.makeText(this, "Laporan Berhasil Disimpan...", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(this, ListLaporanActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );

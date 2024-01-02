@@ -20,8 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.raptor.Mahasiswa.DetailLaporanActivity;
 import com.app.raptor.Models.Laporan;
 import com.app.raptor.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -98,6 +96,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.MyViewHo
             i.putExtra("kegiatan", laporan.getKegiatan());
             i.putExtra("tanggal", laporan.getTanggal());
             i.putExtra("foto", laporan.getFoto());
+            i.putExtra("saran", laporan.getSaran());
             context.startActivity(i);
         });
     }

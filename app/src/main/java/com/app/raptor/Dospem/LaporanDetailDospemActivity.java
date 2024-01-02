@@ -35,17 +35,18 @@ public class LaporanDetailDospemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_laporan_detail_dospem);
 
+        String dataNama = getIntent().getStringExtra("nama");
+        String dataNim = getIntent().getStringExtra("nim");
+        String dataUid = getIntent().getStringExtra("uid");
+
         nama = findViewById(R.id.nama);
         nim = findViewById(R.id.nim);
         botnav = findViewById(R.id.botNavbar);
-        adapter = new LaporanDosenAdapter(this, list);
+        adapter = new LaporanDosenAdapter(this, list, dataUid);
         rv = findViewById(R.id.rv);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        String dataNama = getIntent().getStringExtra("nama");
-        String dataNim = getIntent().getStringExtra("nim");
-        String dataUid = getIntent().getStringExtra("uid");
         if (dataUid != null){
             ref = FirebaseDatabase.getInstance().getReference("Laporan").child(dataUid);
         }

@@ -67,6 +67,7 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/bg_black_edge"
         app:iconifiedByDefault="false"
+        android:theme="@style/SearchView"
         app:queryHint="Cari..."
         app:searchIcon="@android:drawable/ic_menu_search"
         android:id="@+id/sv"
@@ -112,6 +113,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/list_navbar" />
+
+    <LinearLayout
+        android:id="@+id/llnothing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll1"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/baseline_new_folder_24"
+            app:tint="@color/grey_400" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum Ada Laporan"
+            android:textColor="@color/grey_400"
+            android:textSize="13sp" />
+
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"

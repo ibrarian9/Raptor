@@ -1,4 +1,4 @@
-package com.app.raptor.Mahasiswa;
+package com.app.raptor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,13 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.raptor.Dospem.DospemActivityHome;
+import com.app.raptor.Koordinator.KoordinatorActivityHome;
+import com.app.raptor.Mahasiswa.ListLaporanActivity;
+import com.app.raptor.Mahasiswa.RegisterActivity;
 import com.app.raptor.Models.UserDetails;
-import com.app.raptor.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     EditText edEmail, edPass;
     String email, pass, uid;
+    ProgressBar pb;
 
     protected void onStart() {
         super.onStart();
@@ -39,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()){
-                        String getRole = (String) snapshot.child("role").getValue();
+                        String getRole = snapshot.child("role").getValue(String.class);
                         if (getRole == null){
                             UserDetails userDet = snapshot.getValue(UserDetails.class);
                             assert userDet != null;
@@ -47,14 +52,17 @@ public class LoginActivity extends AppCompatActivity {
                             String nim = userDet.getNim();
                             String judul = userDet.getJudulkp();
                             if (!nama.equals("") || !nim.equals("") || !judul.equals("")){
-                                startActivity(new Intent(getApplicationContext(), ListLaporanActivity.class));
+                                startActivity(new Intent(LoginActivity.this, ListLaporanActivity.class));
                                 finish();
                             } else {
-                                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                                 finish();
                             }
                         } else if (getRole.equals("dospem")){
-                            startActivity(new Intent(getApplicationContext(), DospemActivityHome.class));
+                            startActivity(new Intent(LoginActivity.this, DospemActivityHome.class));
+                            finish();
+                        } else if (getRole.equals("koordinator")) {
+                            startActivity(new Intent(LoginActivity.this, KoordinatorActivityHome.class));
                             finish();
                         }
                     } else {
@@ -86,6 +94,8 @@ public class LoginActivity extends AppCompatActivity {
         edEmail = findViewById(R.id.edEmail);
         edPass = findViewById(R.id.edPass);
 
+        pb = findViewById(R.id.progressBar);
+
         login = findViewById(R.id.login);
         login.setOnClickListener( v -> {
             email = String.valueOf(edEmail.getText());
@@ -96,6 +106,10 @@ public class LoginActivity extends AppCompatActivity {
             } else if (TextUtils.isEmpty(pass)) {
                 Toast.makeText(LoginActivity.this, "Enter Password...", Toast.LENGTH_SHORT).show();
             } else {
+                if (!pb.isAnimating()){
+                    pb.setVisibility(View.VISIBLE);
+                }
+
                 mAuth.signInWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(t -> {
                            if (t.isSuccessful()){
@@ -119,21 +133,39 @@ public class LoginActivity extends AppCompatActivity {
                                                String nim = userDet.getNim();
                                                String judul = userDet.getJudulkp();
                                                if (!nama.equals("") || !nim.equals("") || !judul.equals("")){
-                                                   startActivity(new Intent(getApplicationContext(), ListLaporanActivity.class));
+                                                   if (pb.isAnimating()){
+                                                       pb.setVisibility(View.GONE);
+                                                   }
+                                                   startActivity(new Intent(LoginActivity.this, ListLaporanActivity.class));
                                                    finish();
                                                } else {
-                                                   startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                                                   if (pb.isAnimating()){
+                                                       pb.setVisibility(View.GONE);
+                                                   }
+                                                   startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                                                    finish();
                                                }
-                                           } else {
-                                               startActivity(new Intent(getApplicationContext(), DospemActivityHome.class));
+                                           } else if (getRole.equals("dospem")){
+                                               if (pb.isAnimating()){
+                                                   pb.setVisibility(View.GONE);
+                                               }
+                                               startActivity(new Intent(LoginActivity.this, DospemActivityHome.class));
+                                               finish();
+                                           } else if (getRole.equals("koordinator")) {
+                                               if (pb.isAnimating()){
+                                                   pb.setVisibility(View.GONE);
+                                               }
+                                               startActivity(new Intent(LoginActivity.this, KoordinatorActivityHome.class));
                                                finish();
                                            }
                                        } else {
                                            UserDetails userDet = new UserDetails("","","","","","",email,"", uid);
                                            db.child(uid).setValue(userDet).addOnCompleteListener(task -> {
                                                if (task.isSuccessful()){
-                                                   startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                                                   if (pb.isAnimating()){
+                                                       pb.setVisibility(View.GONE);
+                                                   }
+                                                   startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                                                    finish();
                                                }
                                            });
@@ -146,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
                                    }
                                });
                            } else {
-                               Toast.makeText(LoginActivity.this, "Login Gagal", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(LoginActivity.this, "Email atau Password Salah...", Toast.LENGTH_SHORT).show();
                            }
                         });
             }
